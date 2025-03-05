@@ -36,11 +36,7 @@ module.exports = (client) => {
         client.riffy.on('trackStart', async (player, track) => {
             const channel = client.channels.cache.get(player.textChannel);
             
-            client.user.setPresence({
-                activities: [{ name: `♫ ${track.info.title}`, type: ActivityType.Listening }],
-                status: 'online',
-            });
-            
+
             function formatTime(ms) {
                 if (!ms || ms === 0) return "0:00";
                 const totalSeconds = Math.floor(ms / 1000);
